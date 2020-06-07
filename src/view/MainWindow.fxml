@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainPane" minHeight="600.0" minWidth="1000.0" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainWindowController">
+   <center>
+      <StackPane fx:id="centerView" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="detailView" prefHeight="200.0" prefWidth="200.0" />
+            <SplitPane dividerPositions="0.1" orientation="VERTICAL">
+               <items>
+
+                  <ScrollPane fx:id="scroll" prefWidth="800.0">
+                     <content>
+                        <TilePane fx:id="list" alignment="CENTER" hgap="10.0" prefColumns="1" prefHeight="650.0" prefRows="0" prefTileHeight="250.0" prefTileWidth="900.0" prefWidth="900.0">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </TilePane>
+                     </content>
+                  </ScrollPane>
+                  <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="100.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <Label text="Filters:">
+                           <padding>
+                              <Insets left="12.0" right="12.0" />
+                           </padding>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label text="Vehicle Type: " />
+                        <ChoiceBox fx:id="vehicleType" focusTraversable="false" prefWidth="100.0" />
+                        <Label text="No. of seats:" />
+                        <ChoiceBox fx:id="seatFilter" focusTraversable="false" prefWidth="50.0" />
+                        <Label text="Status:" />
+                        <ChoiceBox fx:id="statusFilter" focusTraversable="false" prefWidth="100.0" />
+                        <Label text="Make:" />
+                        <TextField fx:id="makeFilter" focusTraversable="false" prefWidth="100.0" />
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="60.0">
+                           <children>
+                              <Button focusTraversable="false" mnemonicParsing="false" onAction="#handleApplyButtonAction" text="Apply">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin></Button>
+                              <Button focusTraversable="false" mnemonicParsing="false" onAction="#handleResetButtonAction" text="Reset" />
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </items>
+            </SplitPane>
+         </children>
+      </StackPane>
+   </center>
+   <bottom>
+      <Label fx:id="vehicleNumber" maxHeight="20.0" minHeight="20.0" prefHeight="20.0" text="vehicleNumber" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="5.0" top="5.0" />
+         </BorderPane.margin>
+      </Label>
+   </bottom>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleImportButtonAction" text="Import Text File" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleExportButtonAction" text="Export to Text File" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Manage">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleAddVehicleButtonAction" text="Add Vehicle" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Exit">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleQuitButtonAction" text="Quit Program" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

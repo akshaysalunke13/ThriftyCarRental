@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<TitledPane fx:id="vehicleDetails" collapsible="false" text="Vehicle Details" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.VehicleDetailViewController">
+   <content>
+      <SplitPane dividerPositions="0.886" minHeight="500.0" minWidth="900.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="900.0">
+         <items>
+            <SplitPane dividerPositions="0.56" prefHeight="160.0" prefWidth="200.0">
+              <items>
+                  <SplitPane dividerPositions="0.6127562642369021" orientation="VERTICAL">
+                     <items>
+                        <ImageView fx:id="image" fitHeight="400.0" fitWidth="500.0" pickOnBounds="true" />
+                        <SplitPane maxHeight="-Infinity" orientation="VERTICAL" prefHeight="70.0">
+                           <items>
+                              <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="70.0" prefWidth="534.0">
+                                 <children>
+                                    <Label text="Status:">
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label fx:id="status" text="Status">
+                                       <padding>
+                                          <Insets right="15.0" />
+                                       </padding></Label>
+                                    <Label text="Type:">
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label fx:id="type" text="Type">
+                                       <padding>
+                                          <Insets right="15.0" />
+                                       </padding></Label>
+                                    <Label fx:id="extra" text="Other" />
+                                 </children>
+                              </HBox>
+                           </items>
+                        </SplitPane>
+                     </items>
+                  </SplitPane>
+                  <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+                     <items>
+                        <Label text="Rental Records">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="recordList" prefHeight="353.0" prefWidth="343.0">
+                           <columns>
+                              <TableColumn editable="false" prefWidth="75.0" sortable="false" />
+                              <TableColumn editable="false" prefWidth="75.0" sortable="false" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </items>
+                  </SplitPane>
+              </items>
+            </SplitPane>
+            <ButtonBar prefHeight="40.0" prefWidth="200.0">
+               <buttons>
+                  <Button fx:id="rentButton" focusTraversable="false" mnemonicParsing="false" onAction="#handleRentButtonAction" text="Rent" />
+                  <Button fx:id="returnButton" focusTraversable="false" mnemonicParsing="false" onAction="#handleReturnButtonAction" text="Return" />
+                  <Button fx:id="performMaintenanceButton" focusTraversable="false" mnemonicParsing="false" onAction="#handlePerformMaintenanceButtonAction" text="Perform Maintenance" wrapText="true" />
+                  <Button fx:id="completeMaintenanceButton" focusTraversable="false" mnemonicParsing="false" onAction="#handleCompleteMaintenanceButtonAction" text="Complete Maintenance" wrapText="true" />
+                  <Button focusTraversable="false" mnemonicParsing="false" onAction="#handleGoBackButtonAction" text="Go Back" wrapText="true" />
+               </buttons>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </ButtonBar>
+         </items>
+      </SplitPane>
+   </content>
+   <font>
+      <Font size="16.0" />
+   </font>
+</TitledPane>
